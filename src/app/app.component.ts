@@ -3,8 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import {  MyTeamsPage } from '../pages/pages';
-import {  TournamentsPage } from '../pages/pages';
+import {  MyTeamsPage } from '../pages/my-teams/my-teams';
+import {  TournamentsPage } from '../pages/tournaments/tournaments';
 
 
 @Component({
