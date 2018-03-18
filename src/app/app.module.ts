@@ -7,11 +7,11 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { MyTeamsPage } from '../pages/pages'
-import { TournamentsPage } from '../pages/pages'
-import { TeamDetailPage } from '../pages/pages'
-import { GamePage} from '../pages/pages'
-import { TeamsPage } from '../pages/pages'
+import { MyTeamsPage } from '../pages/my-teams/my-teams'
+import { TournamentsPage } from '../pages/tournaments/tournaments'
+import { TeamDetailPage } from '../pages/team-detail/team-detail'
+import { GamePage} from '../pages/game/game'
+import { TeamsPage } from '../pages/teams/teams'
 
 @NgModule({
   declarations: [
