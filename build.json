@@ -1,0 +1,18 @@
+{
+  "android": {
+      "debug": {
+          "keystore": "../elite-schedule-app.keystore",
+          "storePassword": "abcd1234",
+          "alias": "mykey1",
+          "password" : "abcd1234",
+          "keystoreType": ""
+      },
+      "release": {
+          "keystore": "../elite-schedule-app.keystore",
+          "storePassword": "abcd1234",
+          "alias": "mykey2",
+          "password" : "abcd1234",
+          "keystoreType": ""
+      }
+  }
+}
