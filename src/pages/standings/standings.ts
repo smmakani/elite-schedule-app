@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as _ from 'lodash';
+import { EliteApiServiceProvider } from '../../providers/elite-api-service/elite-api-service';
 
 /**
  * Generated class for the StandingsPage page.
@@ -13,12 +15,28 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'standings.html',
 })
 export class StandingsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  allStandings: any[];
+  standings: any[];
+  team:any = {};
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+             private eliteApi: EliteApiServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StandingsPage');
+    this.team = this.navParams.data;
+    let tourneyData = this.eliteApi.getCurrentTourney();
+    this.standings = tourneyData.standings;
+
+    this.allStandings =
+      _.chain(this.standings)
+       .groupBy('division')
+       .toPairs()
+       .map(item => _.zipObject(['divisionName', 'divisionStandings'], item))
+       .value();
+
+    console.log('standings:', this.standings);
+    console.log('division Standings', this.allStandings);
   }
 
 }
