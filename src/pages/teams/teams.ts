@@ -17,6 +17,7 @@ import * as _ from 'lodash';
 export class TeamsPage {
   private allTeams: any;
   private allTeamDivisions: any;
+  queryText: string; 
   teams = [];
   // teams = [
   //   { id: 1, name: "HC Elite"},
@@ -56,6 +57,19 @@ export class TeamsPage {
 
   itemTapped($event, team) {
     this.navCtrl.push( TeamHomePage, team );
+  }
+
+  updateTeams(){
+    let queryTextLower = this.queryText.toLowerCase();
+    let filteredTeams = [];
+    _.forEach(this.allTeamDivisions, td => {
+      let teams = _.filter(td.divisionTeams, t => (<any>t).name.toLowerCase().includes(queryTextLower));
+      if (teams.length) {
+        filteredTeams.push({ divisionName: td.divisionName, divisionTeams: teams });
+      }
+    });
+
+    this.teams = filteredTeams;
   }
 
 }
